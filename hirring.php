@@ -9,8 +9,13 @@
             </thead>
             <tbody>
                 <?php
+                // Recuperamos ID Trabajador
+                $IDTRABAJADOR = $_GET['idTrabajador'];
+                $ANIO = $_GET['anio'];
+                //$PERIODO = $_GET['periodo'];
+
                 //$sql = "SELECT * FROM `tblConvocatoria` c,`tblVacante` j WHERE c.`IDCONVOCATORIA`=j.`IDCONVOCATORIA` AND NOMBRECONVOCATORIA LIKE '%" . $NOMBRECONVOCATORIA . "%' ORDER BY FECHAPUBLICACION DESC";
-                $sql = "SELECT * FROM `tblboleta`";
+                $sql = "SELECT * FROM `tblboleta` WHERE IDTRABAJADOR = $IDTRABAJADOR AND ANIO = $ANIO";
                 $mydb->setQuery($sql);
                 $cur = $mydb->loadResultList();
                 foreach ($cur as $result) {

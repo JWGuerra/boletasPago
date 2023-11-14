@@ -23,7 +23,7 @@
     margin-bottom: 10px;
   }
 </style>
-<form action="index.php?q=hiring" method="POST">
+<form id="miFormulario" action="process.php?action=solicitar" method="POST">
   <section id="content" style="border-radius: 15px;">
     <div class="container content">
       <div class="col-sm-2"></div>
@@ -60,7 +60,7 @@
               <div class="col-sm-12 search1">
                 <label style="font-weight:normal;" class="col-sm-3">Celular:</label>
                 <div class="col-sm-9">
-                  <input class="form-control" type="email" name="CELULAR" placeholder="Celular">
+                  <input class="form-control" type="" name="CELULAR" placeholder="Celular">
                 </div>
               </div>
             </div>
@@ -100,7 +100,7 @@
               <div class="col-sm-12 search1">
                 <label class="col-sm-3"></label>
                 <div class="col-sm-9">
-                  <input type="submit" name="submit" class="btn btn-success" value="SOLICITAR" style="border-radius: 10px;">
+                  <input type="submit" name="submit" class="btn btn-success" value="SOLICITAR" style="border-radius: 10px;" onclick="validarFormulario()">
                 </div>
               </div>
             </div>
@@ -111,3 +111,39 @@
     </div>
   </section>
 </form>
+<script>
+  function validarFormulario() {
+    // Validar aquí los campos del formulario
+    var dni = document.forms["miFormulario"]["DNI"].value;
+    var celular = document.forms["miFormulario"]["CELULAR"].value;
+    // Agrega más campos según sea necesario
+
+    // Verifica si algún campo está vacío
+    if (dni === "" || celular === "") {
+      // Muestra la ventana modal con el mensaje
+      $('#mensajeModal').modal('show');
+      event.preventDefault();
+    } else {
+      // Si todos los campos están llenos, envía el formulario
+      document.getElementById("miFormulario").submit();
+    }
+  }
+</script>
+
+<!-- Ventana modal para mostrar el mensaje -->
+<div class="modal fade" id="mensajeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Mensaje de Validación</h4>
+      </div>
+      <div class="modal-body">
+        Complete los campos antes de enviar el formulario.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

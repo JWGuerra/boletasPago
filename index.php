@@ -4,7 +4,7 @@ $content = 'home.php';
 $view = (isset($_GET['q']) && $_GET['q'] != '') ? $_GET['q'] : '';
 switch ($view) {
 	case 'hiring':
-		$title = isset($_GET['search']) ? 'Vacantes en ' . $_GET['search'] : "BOLETAS DISPONIBLES";
+		$title = isset($_GET['Nombre']) ? 'BOLETAS DISPONIBLES DE ' . $_GET['Nombre'] : "";
 		$content = 'hirring.php';
 		break;
 	case 'verBoleta':

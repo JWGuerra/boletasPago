@@ -9,17 +9,25 @@ switch ($action) {
 
 function doSolicitud()
 {
-	global $mydb;
-	$DNI  = $_GET['DNI'];
-	$CELULAR  = $_GET['CELULAR'];
-	$FECHANACIMIENTO  = $_GET['FECHANACIMIENTO'];
-	$ANIO  = $_GET['ANIO'];
+	$DNI  				= $_POST['DNI'];
+	$CELULAR  			= $_POST['CELULAR'];
+	$FECHANACIMIENTO  	= $_POST['FECHANACIMIENTO'];
+	$ANIO  				= $_POST['ANIO'];
 
-	// Validación de Usuarios
-	if ($picture == "") {
-		# code...
-		redirect(web_root . "index.php?q=apply&job=" . $IDTRABAJADOR . "&view=personalinfo");
+	if ($_POST['DNI'] == "" || $_POST['CELULAR'] == "" || $_POST['FECHANACIMIENTO'] == "" || $_POST['ANIO'] == "") {
+		redirect(web_root . "index.php?q=error");
 	} else {
+		// Consulta SQL a DB
+		global $mydb;
+		$sql = "SELECT * FROM `tblTrabajador` INNER JOIN `tblBoleta` on `tblTrabajador`.IDTRABAJADOR = `tblBoleta`.IDTRABAJADOR;";
+		$mydb->setQuery($sql);
+		$result = $mydb->loadSingleResult();
 
+		// Validación de Usuarios
+		if ($DNI == $result->DNI && $CELULAR == $result->CELULAR) {
+			redirect(web_root . "index.php?q=hiring&idTrabajador=" . $result->IDTRABAJADOR . "&Nombre=" . $result->NOMBRES . "&anio=" . $result->ANIO);
+		} else {
+			redirect(web_root . "index.php?q=error");
+		}
 	}
 }
