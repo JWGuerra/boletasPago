@@ -1,28 +1,12 @@
-<style type="text/css">
-  #content {
-    min-height: 400px;
-    background-color: #CED1E0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
-  }
+<?php 
+if (isset($_POST['submit'])) {
+  $dni      = $_POST['DNI'];
+  $celular  = $_POST['CELULAR'];
+  $fecha    = $_POST['FECHANACIMIENTO'];
+  $anio     = $_POST['ANIO'];
+}
+?>
 
-  #content .panel {
-    padding: 10px;
-  }
-
-  .panel-body label {
-    font-size: 20px;
-  }
-
-  .panel-body input {
-    font-size: 15px;
-  }
-
-  .panel-body>.row {
-    margin-bottom: 10px;
-  }
-</style>
 <form id="miFormulario" action="process.php?action=solicitar" method="POST">
   <section id="content" style="border-radius: 15px;">
     <div class="container content">
@@ -147,3 +131,29 @@
     </div>
   </div>
 </div>
+
+<style type="text/css">
+  #content {
+    min-height: 400px;
+    background-color: #CED1E0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+  }
+
+  #content .panel {
+    padding: 10px;
+  }
+
+  .panel-body label {
+    font-size: 20px;
+  }
+
+  .panel-body input {
+    font-size: 15px;
+  }
+
+  .panel-body>.row {
+    margin-bottom: 10px;
+  }
+</style>
