@@ -1,4 +1,4 @@
-<?php 
+<?php
 if (isset($_POST['submit'])) {
   $dni      = $_POST['DNI'];
   $celular  = $_POST['CELULAR'];
@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
               <div class="col-sm-12 search1">
                 <label style="font-weight:normal;" class="col-sm-3">DNI:</label>
                 <div class="col-sm-9">
-                  <input class="form-control" type="" name="DNI" placeholder="DNI">
+                  <input class="form-control" type="" name="DNI" placeholder="DNI" maxlength="8">
                 </div>
               </div>
             </div>
@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
               <div class="col-sm-12 search1">
                 <label style="font-weight:normal;" class="col-sm-3">Celular:</label>
                 <div class="col-sm-9">
-                  <input class="form-control" type="" name="CELULAR" placeholder="Celular">
+                  <input class="form-control" type="" name="CELULAR" placeholder="Celular" maxlength="9">
                 </div>
               </div>
             </div>
@@ -94,16 +94,22 @@ if (isset($_POST['submit'])) {
       <div class="col-sm-2"></div>
     </div>
   </section>
+  <?php
+  require_once('validar-form.php')
+  ?>
 </form>
+
 <script>
   function validarFormulario() {
     // Validar aquí los campos del formulario
-    var dni = document.forms["miFormulario"]["DNI"].value;
+    var dni     = document.forms["miFormulario"]["DNI"].value;
     var celular = document.forms["miFormulario"]["CELULAR"].value;
+    var fecha   = document.forms["miFormulario"]["FECHANACIMIENTO"].value;
+    var anio    = document.forms["miFormulario"]["ANIO"].value;
     // Agrega más campos según sea necesario
 
     // Verifica si algún campo está vacío
-    if (dni === "" || celular === "") {
+    if (dni === "" || celular === "" || fecha === "" || anio === "") {
       // Muestra la ventana modal con el mensaje
       $('#mensajeModal').modal('show');
       event.preventDefault();
@@ -114,7 +120,7 @@ if (isset($_POST['submit'])) {
   }
 </script>
 
-<!-- Ventana modal para mostrar el mensaje -->
+
 <div class="modal fade" id="mensajeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -123,7 +129,7 @@ if (isset($_POST['submit'])) {
         <h4 class="modal-title" id="myModalLabel">Mensaje de Validación</h4>
       </div>
       <div class="modal-body">
-        Complete los campos antes de enviar el formulario.
+        Complete todos los campos antes de enviar el formulario.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -131,6 +137,7 @@ if (isset($_POST['submit'])) {
     </div>
   </div>
 </div>
+
 
 <style type="text/css">
   #content {

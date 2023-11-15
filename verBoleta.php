@@ -1,26 +1,39 @@
 <section id="content">
     <div class="container">
         <?php
-        if (isset($_GET['search'])) {
+        if (isset($_GET['DNI_Trabajador'])) {
             # code...
-            $IDBOLETA = $_GET['search'];
+            $DNI_Trabajador = $_GET['DNI_Trabajador'];
         } else {
-            $IDBOLETA = '';
+            $DNI_Trabajador = '';
         }
-        $sql = "SELECT * FROM `tblBoleta` WHERE IDBOLETA = $IDBOLETA";
-        $mydb->setQuery($sql);
-        $cur = $mydb->loadResultList();
-        foreach ($cur as $result) {
+        if (isset($_GET['Anio_Proceso'])) {
+            # code...
+            $Anio_Proceso    = $_GET['Anio_Proceso'];
+        } else {
+            $Anio_Proceso = '';
+        }
+        if (isset($_GET['Mes_Proceso'])) {
+            # code...
+            $Mes_Proceso    = $_GET['Mes_Proceso'];
+        } else {
+            $Mes_Proceso = '';
+        }
+
+        // Buscar Documento
+        
+
         ?>
-            <div class="comunicadoContainer">
-                <div class="pdf">
-                    <p style="font-size: 15px;" class="mg-sec-left-title">Descripción : <strong><?php echo $result->BOLETAUBICACION; ?></strong></p>
-                    <object class="pdfview" type="application/pdf" data="<?php echo $result->BOLETAUBICACION; ?>"></object>
-                    <br>
-                    <br>
-                </div>
+        <div class="boletacontainer">
+            <div class="pdf">
+                <p style="font-size: 15px;" class="mg-sec-left-title">Boleta correspondiente al periodo : <a target="_blank" href="https://ocw.ehu.eus/pluginfile.php/40137/mod_resource/content/1/redes_neuro/contenidos/pdf/libro-del-curso.pdf"> <strong><?php echo $Mes_Proceso; ?></strong></a></p>
+                <object class="pdfview" type="application/pdf" data="https://ocw.ehu.eus/pluginfile.php/40137/mod_resource/content/1/redes_neuro/contenidos/pdf/libro-del-curso.pdf">
+                    <p>El navegador no puede mostrar el PDF. Puedes descargarlo <a href="https://ocw.ehu.eus/pluginfile.php/40137/mod_resource/content/1/redes_neuro/contenidos/pdf/libro-del-curso.pdf">aquí</a>.</p>
+                </object>
+                <br>
+                <br>
             </div>
-        <?php  } ?>
+        </div>
     </div>
 </section>
 
