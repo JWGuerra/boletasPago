@@ -7,7 +7,6 @@ defined('LIB_PATH') ? null : define ('LIB_PATH',SITE_ROOT.DS.'include');
 
 require_once(LIB_PATH.DS."autonumbers.php");
 require_once(LIB_PATH.DS."config.php");
-
 require_once(LIB_PATH.DS."database.php");
 require_once(LIB_PATH.DS."function.php");
 require_once(LIB_PATH.DS."initialize.php"); 
