@@ -21,14 +21,54 @@
         }
 
         // Buscar Documento
-        
+        function buscarArchivoPorFecha($directorioBase, $anio, $mes, $archivoBuscado)
+        {
+            $rutaAnio = $directorioBase . '/'. $anio;
+            // Verificar si el directorio del año existe
+            if (is_dir($rutaAnio)) {
+                $rutaMes = $rutaAnio . '/' . $mes;
+
+                // Verificar si el directorio del mes existe
+                if (is_dir($rutaMes)) {
+                    // Construir la ruta completa del archivo buscado
+                    $rutaArchivo = $rutaMes . $archivoBuscado;
+
+                    // Verificar si el archivo existe
+                    if (file_exists($rutaArchivo)) {
+                        return $rutaArchivo;
+                        
+                    } else {
+                        echo $rutaArchivo;
+                        return false; // El archivo no se encontró en el mes especificado
+                    }
+                } else {
+                    return false; // El mes no existe
+                }
+            } else {
+                return false; // El año no existe
+            }
+        }
+
+        // Uso de la función
+        $directorioBase = './boletas'; // Reemplaza esto con la ruta de tu directorio base
+        $anioBuscado = $Anio_Proceso; // Reemplaza esto con el año que estás buscando
+        $mesBuscado = $Mes_Proceso; // Reemplaza esto con el mes que estás buscando (puede ser '01', '02', ..., '12')
+        $archivoBuscado = '/Firmados/BPMI'.$DNI_Trabajador.'F.PDF'; // Reemplaza esto con el nombre del archivo que estás buscando
+
+        $rutaArchivo = buscarArchivoPorFecha($directorioBase, $anioBuscado, $mesBuscado, $archivoBuscado);
+
+        if ($rutaArchivo) {
+            echo "";
+        } else {
+            echo "El archivo no se encontró.";
+        }
 
         ?>
         <div class="boletacontainer">
             <div class="pdf">
-                <p style="font-size: 15px;" class="mg-sec-left-title">Boleta correspondiente al periodo : <a target="_blank" href="https://ocw.ehu.eus/pluginfile.php/40137/mod_resource/content/1/redes_neuro/contenidos/pdf/libro-del-curso.pdf"> <strong><?php echo $Mes_Proceso; ?></strong></a></p>
-                <object class="pdfview" type="application/pdf" data="https://ocw.ehu.eus/pluginfile.php/40137/mod_resource/content/1/redes_neuro/contenidos/pdf/libro-del-curso.pdf">
-                    <p>El navegador no puede mostrar el PDF. Puedes descargarlo <a href="https://ocw.ehu.eus/pluginfile.php/40137/mod_resource/content/1/redes_neuro/contenidos/pdf/libro-del-curso.pdf">aquí</a>.</p>
+                <p style="font-size: 15px;" class="mg-sec-left-title">Boleta correspondiente al periodo : <strong><?php echo $Mes_Proceso; ?></strong></p>
+                <object class="pdfview" type="application/pdf" data=<?php echo $rutaArchivo?>>
+                    <p>El navegador no puede mostrar el PDF. Puedes descargarlo <a href=<?php echo $rutaArchivo?>>aquí</a>.</p>
                 </object>
                 <br>
                 <br>
