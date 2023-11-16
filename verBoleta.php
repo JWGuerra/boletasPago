@@ -38,7 +38,6 @@
                         return $rutaArchivo;
                         
                     } else {
-                        echo $rutaArchivo;
                         return false; // El archivo no se encontró en el mes especificado
                     }
                 } else {
@@ -60,7 +59,7 @@
         if ($rutaArchivo) {
             echo "";
         } else {
-            echo "El archivo no se encontró.";
+            echo "NO SE ENCONTRÓ LA BOLETA!!";
         }
 
         ?>
