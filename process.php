@@ -21,8 +21,8 @@ function doSolicitud()
 
 		// Consulta SQL a DB
 		$conexion = new Cconexion();
-        $sentencia = $conexion->ConexionBD()->query("EXEC sp_BoletaTrabajadorDNI $ANIO, $DNI");
-        $result = $sentencia->fetchAll(PDO::FETCH_OBJ);
+		$sentencia = $conexion->ConexionBD()->query("EXEC sp_BoletaTrabajadorDNI $ANIO, $DNI");
+		$result = $sentencia->fetchAll(PDO::FETCH_OBJ);
 
 		// Validación de Usuarios
 		if ($DNI == $result[0]->DNI_Trabajador && $CELULAR == $result[0]->Telefono) {
