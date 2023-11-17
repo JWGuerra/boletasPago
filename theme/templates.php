@@ -87,10 +87,6 @@
               <h5 class="widgetheading">LINK DIRECTOS</h5>
               <ul class="link-list">
                 <li><a href="<?php echo web_root; ?>index.php">Inicio</a></li>
-                <li><a href="<?php echo web_root; ?>index.php?q=convocatoria">Convocatorias</a></li>
-                <li><a href="<?php echo web_root; ?>index.php?q=hiring">Vacantes Publicadas</a></li>
-                <li><a href="<?php echo web_root; ?>index.php?q=About">Acerca de Nosotros</a></li>
-                <li><a href="<?php echo web_root; ?>index.php?q=comunicados">Comunicados</a></li>
               </ul>
             </div>
           </div>

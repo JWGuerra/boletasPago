@@ -1,9 +1,9 @@
 <?php
 if (isset($_POST['submit'])) {
-  $dni      = $_POST['DNI'];
-  $celular  = $_POST['CELULAR'];
-  $fecha    = $_POST['FECHANACIMIENTO'];
-  $anio     = $_POST['ANIO'];
+  $dni              = $_POST['DNI'];
+  $celular          = $_POST['CELULAR'];
+  $fechaNacimiento  = $_POST['FECHANACIMIENTO'];
+  $anio             = $_POST['ANIO'];
 }
 ?>
 
@@ -95,17 +95,17 @@ if (isset($_POST['submit'])) {
     </div>
   </section>
   <?php
-  require_once('validar-form.php')
+  require_once('validar-form.php');
   ?>
 </form>
 
 <script>
   function validarFormulario() {
     // Validar aquí los campos del formulario
-    var dni     = document.forms["miFormulario"]["DNI"].value;
+    var dni = document.forms["miFormulario"]["DNI"].value;
     var celular = document.forms["miFormulario"]["CELULAR"].value;
-    var fecha   = document.forms["miFormulario"]["FECHANACIMIENTO"].value;
-    var anio    = document.forms["miFormulario"]["ANIO"].value;
+    var fecha = document.forms["miFormulario"]["FECHANACIMIENTO"].value;
+    var anio = document.forms["miFormulario"]["ANIO"].value;
     // Agrega más campos según sea necesario
 
     // Verifica si algún campo está vacío
@@ -119,7 +119,6 @@ if (isset($_POST['submit'])) {
     }
   }
 </script>
-
 
 <div class="modal fade" id="mensajeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -138,7 +137,7 @@ if (isset($_POST['submit'])) {
   </div>
 </div>
 
-
+<!--  ESTILOS DE LA PAGINA - HOME  -->
 <style type="text/css">
   #content {
     min-height: 400px;
