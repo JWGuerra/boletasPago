@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
@@ -37,7 +37,7 @@
           </div>
         </div>
       </div>
-      <div class="navbar navbar-default navbar-static-top"> 
+      <div class="navbar navbar-default navbar-static-top">
       </div>
     </header>
 
@@ -124,14 +124,10 @@
     </footer>
   </div>
   <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
-  <!-- javascript
-    ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
+  <!-- ====================     JavaScript    ==================== -->
   <script src="<?php echo web_root; ?>plugins/home-plugins/js/jquery.js"></script>
   <script src="<?php echo web_root; ?>plugins/home-plugins/js/jquery.easing.1.3.js"></script>
   <script src="<?php echo web_root; ?>plugins/home-plugins/js/bootstrap.min.js"></script>
-
-
   <script type="text/javascript" src="<?php echo web_root; ?>plugins/dataTables/dataTables.bootstrap.min.js"></script>
   <script src="<?php echo web_root; ?>plugins/datatables/jquery.dataTables.min.js"></script>
 
@@ -191,7 +187,6 @@
       });
     });
   </script>
-
 </body>
 
 </html>

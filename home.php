@@ -54,7 +54,7 @@ if (isset($_POST['submit'])) {
                 <label style="font-weight:normal;" class="col-sm-3">Fecha de Nacimiento:</label>
                 <div class="col-sm-9">
                   <div class="form-group mb-4">
-                    <input type='date' class="form-control" name="FECHANACIMIENTO" />
+                    <input type='date' class="form-control" name="FECHANACIMIENTO"/>
                   </div>
                 </div>
               </div>
@@ -93,10 +93,10 @@ if (isset($_POST['submit'])) {
       </div>
       <div class="col-sm-2"></div>
     </div>
+    <?php
+    require_once('validar-form.php');
+    ?>
   </section>
-  <?php
-  require_once('validar-form.php');
-  ?>
 </form>
 
 <script>
