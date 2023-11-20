@@ -59,7 +59,7 @@
         if ($rutaArchivo) {
             echo "";
         } else {
-            echo "NO SE ENCONTRÓ LA BOLETA!!";
+            echo "<p style = 'color:red;' > <strong>NO SE ENCONTRÓ LA BOLETA!!</strong></p>";
         }
 
         ?>
