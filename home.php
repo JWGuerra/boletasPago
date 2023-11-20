@@ -1,13 +1,13 @@
 <?php
 if (isset($_POST['submit'])) {
-  $dni              = $_POST['DNI'];
-  $celular          = $_POST['CELULAR'];
-  $fechaNacimiento  = $_POST['FECHANACIMIENTO'];
-  $anio             = $_POST['ANIO'];
+  $DNI              = $_POST['DNI'];
+  $CELULAR          = $_POST['CELULAR'];
+  $FECHANACIMIENTO  = $_POST['FECHANACIMIENTO'];
+  $ANIO             = $_POST['ANIO'];
 }
 ?>
 
-<form id="miFormulario" action="process.php?action=solicitar" method="POST">
+<form id="miFormulario" action="" method="POST">
   <section id="content" style="border-radius: 15px;">
     <div class="container content">
       <div class="col-sm-2"></div>
@@ -22,10 +22,12 @@ if (isset($_POST['submit'])) {
               <br><br>El “PLAN MERISS” no se hace responsable por las faltas en que incurra el Usuario respecto de esta condición. El “PLAN MERISS” se reserva el derecho de verificar la información proporcionada por el Usuario.
             </p>
             <h4 style="font-weight: normal;">Aceptar términos y condiciones:</h4>
+
             <div>
               <input type="radio" id="huey" name="drone" value="huey" />
               <label style="font-weight: normal;" for="huey">Si acepto</label>
             </div>
+            <div style="text-align: right;font-size:15px;"><a href="./theme/MANUAL_USUARIO.pdf" target="_blank" style="background:#016644;color:white;padding:10px;border-radius:5px;"><i class="fa fa-book"></i> Manual</a></div>
           </div>
         </div>
         <div class="panel" style="border-radius: 15px;">
@@ -35,7 +37,7 @@ if (isset($_POST['submit'])) {
               <div class="col-sm-12 search1">
                 <label style="font-weight:normal;" class="col-sm-3">DNI:</label>
                 <div class="col-sm-9">
-                  <input class="form-control" type="" name="DNI" placeholder="DNI" maxlength="8">
+                  <input class="form-control" type="" name="DNI" placeholder="DNI" maxlength="8" value="<?php if (isset($DNI)) echo $DNI ?>">
                 </div>
               </div>
             </div>
@@ -44,7 +46,7 @@ if (isset($_POST['submit'])) {
               <div class="col-sm-12 search1">
                 <label style="font-weight:normal;" class="col-sm-3">Celular:</label>
                 <div class="col-sm-9">
-                  <input class="form-control" type="" name="CELULAR" placeholder="Celular" maxlength="9">
+                  <input class="form-control" type="" name="CELULAR" placeholder="Celular" maxlength="9" value="<?php if (isset($CELULAR)) echo $CELULAR ?>">
                 </div>
               </div>
             </div>
@@ -54,7 +56,7 @@ if (isset($_POST['submit'])) {
                 <label style="font-weight:normal;" class="col-sm-3">Fecha de Nacimiento:</label>
                 <div class="col-sm-9">
                   <div class="form-group mb-4">
-                    <input type='date' class="form-control" name="FECHANACIMIENTO"/>
+                    <input type='date' class="form-control" name="FECHANACIMIENTO" value="<?php if (isset($FECHANACIMIENTO)) echo $FECHANACIMIENTO ?>" />
                   </div>
                 </div>
               </div>
@@ -64,7 +66,6 @@ if (isset($_POST['submit'])) {
                 <label style="font-weight:normal;" class="col-sm-3">Año:</label>
                 <div class="col-sm-9">
                   <select class="form-control" name="ANIO">
-                    <option value="">Todos</option>
                     <option value="2015">2015</option>
                     <option value="2016">2016</option>
                     <option value="2017">2017</option>
@@ -73,7 +74,7 @@ if (isset($_POST['submit'])) {
                     <option value="2020">2020</option>
                     <option value="2021">2021</option>
                     <option value="2022">2022</option>
-                    <option value="2023">2023</option>
+                    <option value="2023" selected>2023</option>
                   </select>
                 </div>
               </div>
@@ -89,16 +90,15 @@ if (isset($_POST['submit'])) {
               </div>
             </div>
           </div>
+          <?php
+          require_once('process.php');
+          ?>
         </div>
       </div>
       <div class="col-sm-2"></div>
     </div>
-    <?php
-    require_once('validar-form.php');
-    ?>
   </section>
 </form>
-
 <script>
   function validarFormulario() {
     // Validar aquí los campos del formulario
@@ -120,15 +120,16 @@ if (isset($_POST['submit'])) {
   }
 </script>
 
+<!-- MENSAJE MODAL -->
 <div class="modal fade" id="mensajeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Mensaje de Validación</h4>
+        <h4 class="modal-title" id="myModalLabel">ERROR</h4>
       </div>
       <div class="modal-body">
-        Complete todos los campos antes de enviar el formulario.
+        <p>Complete todos los campos antes de enviar el formulario!</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
