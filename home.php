@@ -24,8 +24,7 @@ if (isset($_POST['submit'])) {
             <h4 style="font-weight: normal;">Aceptar términos y condiciones:</h4>
 
             <div>
-              <input type="radio" id="huey" name="drone" value="huey" />
-              <label style="font-weight: normal;" for="huey">Si acepto</label>
+              <input type="checkbox" class="miCheckbox" name="CONDICIONES" id="CONDICIONES"> Si Acepto
             </div>
             <div style="text-align: right;font-size:15px;"><a href="./theme/MANUAL_USUARIO.pdf" target="_blank" style="background:#016644;color:white;padding:10px;border-radius:5px;"><i class="fa fa-book"></i> Manual</a></div>
           </div>
@@ -106,16 +105,22 @@ if (isset($_POST['submit'])) {
     var celular = document.forms["miFormulario"]["CELULAR"].value;
     var fecha = document.forms["miFormulario"]["FECHANACIMIENTO"].value;
     var anio = document.forms["miFormulario"]["ANIO"].value;
-    // Agrega más campos según sea necesario
+    var checkbox = document.getElementById("CONDICIONES");
 
     // Verifica si algún campo está vacío
-    if (dni === "" || celular === "" || fecha === "" || anio === "") {
-      // Muestra la ventana modal con el mensaje
-      $('#mensajeModal').modal('show');
-      event.preventDefault();
+    if (checkbox.checked) {
+      if (dni === "" || celular === "" || fecha === "" || anio === "") {
+        // Muestra la ventana modal con el mensaje
+        $('#mensajeModal').modal('show');
+        event.preventDefault();
+      } else {
+        // Si todos los campos están llenos, envía el formulario
+        document.getElementById("miFormulario").submit();
+      }
     } else {
-      // Si todos los campos están llenos, envía el formulario
-      document.getElementById("miFormulario").submit();
+      // Muestra la ventana modal con el mensaje
+      $('#modalCondiciones').modal('show');
+      event.preventDefault();
     }
   }
 </script>
@@ -130,6 +135,24 @@ if (isset($_POST['submit'])) {
       </div>
       <div class="modal-body">
         <p>Complete todos los campos antes de enviar el formulario!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MENSAJE MODAL -->
+<div class="modal fade" id="modalCondiciones" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">ERROR</h4>
+      </div>
+      <div class="modal-body">
+        <p>ACEPTE LOS TERMINOS Y CONDICIONES!</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
