@@ -23,7 +23,7 @@
         // Buscar Documento
         function buscarArchivoPorFecha($directorioBase, $anio, $mes, $archivoBuscado)
         {
-            $rutaAnio = $directorioBase . '/'. $anio;
+            $rutaAnio = $directorioBase . '/' . $anio;
             // Verificar si el directorio del año existe
             if (is_dir($rutaAnio)) {
                 $rutaMes = $rutaAnio . '/' . $mes;
@@ -36,7 +36,6 @@
                     // Verificar si el archivo existe
                     if (file_exists($rutaArchivo)) {
                         return $rutaArchivo;
-                        
                     } else {
                         return false; // El archivo no se encontró en el mes especificado
                     }
@@ -49,11 +48,12 @@
         }
 
         // Uso de la función
-        $directorioBase = './boletas'; // Reemplaza esto con la ruta de tu directorio base
-        $anioBuscado = $Anio_Proceso; // Reemplaza esto con el año que estás buscando
-        $mesBuscado = $Mes_Proceso; // Reemplaza esto con el mes que estás buscando (puede ser '01', '02', ..., '12')
-        $archivoBuscado = '/Firmados/BPMI'.$DNI_Trabajador.'F.PDF'; // Reemplaza esto con el nombre del archivo que estás buscando
+        $directorioBase = './boletas';  // Reemplaza esto con la ruta de tu directorio base
+        $anioBuscado = $Anio_Proceso;   // Reemplaza esto con el año que estás buscando
+        $mesBuscado = $Mes_Proceso;     // Reemplaza esto con el mes que estás buscando (puede ser '01', '02', ..., '12')
+        $archivoBuscado = '/Firmados/BPMI' . $DNI_Trabajador . 'F.PDF'; // Reemplaza esto con el nombre del archivo que estás buscando
 
+        // Obtener ruta de Archivo
         $rutaArchivo = buscarArchivoPorFecha($directorioBase, $anioBuscado, $mesBuscado, $archivoBuscado);
 
         if ($rutaArchivo) {
@@ -66,8 +66,8 @@
         <div class="boletacontainer">
             <div class="pdf">
                 <p style="font-size: 15px;" class="mg-sec-left-title">Boleta correspondiente al periodo : <strong><?php echo $Mes_Proceso; ?></strong></p>
-                <object class="pdfview" type="application/pdf" data=<?php echo $rutaArchivo?>>
-                    <p>El navegador no puede mostrar el PDF. Puedes descargarlo <a href=<?php echo $rutaArchivo?>>aquí</a>.</p>
+                <object class="pdfview" type="application/pdf" data=<?php echo $rutaArchivo ?>>
+                    <p>El navegador no puede mostrar el PDF. Puedes descargarlo <a href=<?php echo $rutaArchivo ?>>aquí</a>.</p>
                 </object>
                 <br>
                 <br>
@@ -76,7 +76,7 @@
     </div>
 </section>
 
-<!--        ESTILOS DE LA VISTA DE COMUNICADOS      -->
+<!--        ESTILOS DE LA VISTA DE BOLETAS     -->
 <style>
     /* Ordenar los contenedores cadno el tamaño del dispositivo se reduzca */
     @media only screen and (max-width: 1200px) {
