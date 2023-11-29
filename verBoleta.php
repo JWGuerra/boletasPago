@@ -9,15 +9,15 @@
         }
         if (isset($_GET['Anio_Proceso'])) {
             # code...
-            $Anio_Proceso    = $_GET['Anio_Proceso'];
+            $Anio_Proceso   = $_GET['Anio_Proceso'];
         } else {
-            $Anio_Proceso = '';
+            $Anio_Proceso   = '';
         }
         if (isset($_GET['Mes_Proceso'])) {
             # code...
             $Mes_Proceso    = $_GET['Mes_Proceso'];
         } else {
-            $Mes_Proceso = '';
+            $Mes_Proceso    = '';
         }
 
         // Buscar Documento
@@ -48,9 +48,9 @@
         }
 
         // Uso de la función
-        $directorioBase = './boletas';  // Reemplaza esto con la ruta de tu directorio base
-        $anioBuscado = $Anio_Proceso;   // Reemplaza esto con el año que estás buscando
-        $mesBuscado = $Mes_Proceso;     // Reemplaza esto con el mes que estás buscando (puede ser '01', '02', ..., '12')
+        $directorioBase = './boletas';      // Reemplaza esto con la ruta de tu directorio base
+        $anioBuscado    = $Anio_Proceso;    // Reemplaza esto con el año que estás buscando
+        $mesBuscado     = $Mes_Proceso;     // Reemplaza esto con el mes que estás buscando (puede ser '01', '02', ..., '12')
         $archivoBuscado = '/Firmados/BPMI' . $DNI_Trabajador . 'F.PDF'; // Reemplaza esto con el nombre del archivo que estás buscando
 
         // Obtener ruta de Archivo
