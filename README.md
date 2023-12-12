@@ -16,11 +16,13 @@
 * Configurar php.init y agregar las extensiones de los drivers de SQL para PHP.
 * Copiar los drivers correspondiente a la versión de PHP a la carpeta 'C:\xampp\php\ext'.
 * En php.ini agregar las siguientes extensiones:
-- extension=php_sqlsrv_80_nts_x86.dll
-- extension=php_pdo_sqlsrv_80_nts_x86.dll
-- extension=php_sqlsrv_80_ts_x86.dll
-- extension=php_pdo_sqlsrv_80_ts_x86.dll
-- extension=php_sqlsrv_80_nts_x64.dll
-- extension=php_pdo_sqlsrv_80_nts_x64.dll
-- extension=php_sqlsrv_80_ts_x64.dll
-- extension=php_pdo_sqlsrv_80_ts_x64.dll
+~~~
+extension=php_sqlsrv_80_nts_x86.dll
+extension=php_pdo_sqlsrv_80_nts_x86.dll
+extension=php_sqlsrv_80_ts_x86.dll
+extension=php_pdo_sqlsrv_80_ts_x86.dll
+extension=php_sqlsrv_80_nts_x64.dll
+extension=php_pdo_sqlsrv_80_nts_x64.dll
+extension=php_sqlsrv_80_ts_x64.dll
+extension=php_pdo_sqlsrv_80_ts_x64.dll
+~~~
