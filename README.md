@@ -14,3 +14,4 @@
 # Configuración del proyecto
 * Copiar la carpeta boletasPago dentro de la carpeta 'C:\xampp\htdocs'
 * Configurar php.init y agregar las extensiones de los drivers de SQL para PHP.
+* Copiar los drivers de php a la carpeta ''
