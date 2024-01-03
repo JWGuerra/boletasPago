@@ -4,13 +4,11 @@
 function doSolicitud()
 {
 	if (isset($_POST['submit'])) {
-
 		// Recibimos parámetros
 		$DNI  				= $_POST['DNI'];
 		$CELULAR  			= $_POST['CELULAR'];
 		$FECHANACIMIENTO  	= $_POST['FECHANACIMIENTO'];
 		$ANIO  				= $_POST['ANIO'];
-
 		// Consulta SQL a DB
 		$conexion = new Cconexion();
 		$sentencia = $conexion->ConexionBD()->query("EXEC sp_BoletaTrabajadorDNI $ANIO, $DNI");
